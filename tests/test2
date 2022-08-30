@@ -1,0 +1,3 @@
+#! /bin/sh
+
+./tests/testcalc "((10.2+12.5)/2"
