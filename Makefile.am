@@ -3,7 +3,9 @@ ACLOCAL_AMFLAGS = -I m4
 lib_LTLIBRARIES = libcadgl.la
 libcadgl_la_SOURCES = src/cadgl.cpp \
 	src/calc/calc.cpp \
-	src/calc/calc.h
+	src/calc/calc.h \
+	src/graphic/canvas.cpp \
+	src/graphic/canvas.h
 libcadgl_la_CXXFLAGS = -I$(srcdir)/include
 
 include_HEADERS = include/cadgl.h

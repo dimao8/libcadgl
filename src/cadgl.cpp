@@ -21,9 +21,13 @@ namespace cadgl
 
   bool resolve(float* result, const std::string& expr)
   {
+    // TODO : Test resolver. Delete this -->
+
     calc resolver;
 
     return resolver.resolve(result, expr);
+
+    // <--
   }
 
 } // namespace cadgl

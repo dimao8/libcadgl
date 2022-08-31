@@ -18,14 +18,36 @@ AC_PROG_CXX([clang++ llvw-g++ g++])
 
 # Check for pdflatex
 AC_ARG_ENABLE([build-doc],
-              [AS_HELP_STRING([--enable-build-doc], [Set for documentation building])],
-              [AS_IF([test "x$enableval" = "xyes"],
-                     [BUILD_DOC=yes],
-                     [BUILD_DOC=no])],
-              [BUILD_DOC=yes])
+	[AS_HELP_STRING([--enable-build-doc], [Set for documentation building])],
+	[AS_IF([test "x$enableval" = "xyes"],
+		[BUILD_DOC=yes],
+		[BUILD_DOC=no])],
+	[BUILD_DOC=yes])
 AC_PATH_PROG([PDFLATEX], [pdflatex], [BUILD_DOC=no])
 AM_CONDITIONAL([BUILD_DOC], [test "x$BUILD_DOC" = "xyes"])
 
+CXXFLAGS=
+LIBS=
+
+# Check for glm
+AX_CHECK_GLM
+
+# Check for OpenGL
+AX_CHECK_OPENGL
+
+# Check for X11s
+ax_have_x=no
+AC_PATH_X([X11], [X11/Xlib.h], [XrmInitialize()])
+AC_PATH_XTRA([X11], [X11/Xlib.h], [XrmInitialize()])
+AS_IF([test "x$no_x" == "xyes"],
+	[
+		AX_CHECK_GDI
+	],
+	[
+		CXXFLAGS+="$X_CFLAGS"
+		LIBS+="$X_PRE_LIBS $X_LIBS $X_EXTRA_LIBS"
+	])
+
 AC_CONFIG_FILES([Makefile
-                 doc/Doxyfile])
+	doc/Doxyfile])
 AC_OUTPUT
