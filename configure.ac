@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([libcadgl], [0.1.0.0], [dimao8@yandex.ru])
+AC_INIT([libcadgl], [0.1.0.1], [dimao8@yandex.ru])
 AC_CONFIG_SRCDIR([src/cadgl.cpp])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([1.10 foreign subdir-objects silent-rules])
@@ -35,7 +35,7 @@ AX_CHECK_GLM
 # Check for OpenGL
 AX_CHECK_OPENGL
 
-# Check for X11s
+# Check for X11
 ax_have_x=no
 AC_PATH_X([X11], [X11/Xlib.h], [XrmInitialize()])
 AC_PATH_XTRA([X11], [X11/Xlib.h], [XrmInitialize()])
@@ -47,6 +47,9 @@ AS_IF([test "x$no_x" == "xyes"],
 		CXXFLAGS+="$X_CFLAGS"
 		LIBS+="$X_PRE_LIBS $X_LIBS $X_EXTRA_LIBS"
 	])
+
+# Check for glfw
+AX_CHECK_GLFW
 
 AC_CONFIG_FILES([Makefile
 	doc/Doxyfile])

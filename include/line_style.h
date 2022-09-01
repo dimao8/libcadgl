@@ -5,7 +5,7 @@
 #ifndef LINE_STYLE_H
 #define LINE_STYLE_H
 
-#include <glm/glm.hpp>
+#include <glm/vec4.hpp>
 #include <line_stipple.h>
 
 #define DEFAULT_LINE_WIDTH 0.4

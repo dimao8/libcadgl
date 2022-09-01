@@ -1,7 +1,7 @@
 #ifndef RECT_H
 #define RECT_H
 
-#include <glm/glm.hpp>
+#include <glm/vec2.hpp>
 
 namespace cadgl
 {
