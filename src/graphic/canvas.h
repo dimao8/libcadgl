@@ -37,13 +37,6 @@ namespace cadgl
     int m_background_color_index;                     //!< Background color
 
     /**
-     * Set scaling factor for x and y.
-     * 
-     * \param [in] scale  -- Scale factor
-     */
-    void set_scale(const glm::vec2& scale);
-
-    /**
      * Update projection matrix when scale or position is changed.
      * 
      */

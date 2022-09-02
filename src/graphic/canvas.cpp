@@ -17,7 +17,8 @@ namespace cadgl
   {
     m_palette.emplace(0, default_color);
 
-    set_scale(glm::vec2());
+    // Get the size of screen
+
     resize(x, y, width, height);
   }
 
@@ -39,16 +40,9 @@ namespace cadgl
       m_palette.at(m_background_color_index).g,
       m_palette.at(m_background_color_index).b,
       m_palette.at(m_background_color_index).a);
+    glClear(GL_COLOR_BUFFER_BIT);
 
     // TODO : Draw further
-  }
-
-  /******************  canvas::set_scale  *****************/
-
-  void canvas::set_scale(const glm::vec2& scale)
-  {
-    m_scale = scale;
-    update_matrix();
   }
 
   /****************  canvas::update_matrix  ***************/
