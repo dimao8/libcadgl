@@ -1,6 +1,7 @@
 .vscode/
 autom4te.cache/
 build/
+data/
 aclocal.m4
 compile
 config.guess

@@ -1,0 +1,4 @@
+#! /bin/sh
+
+./tests/testcanvas
+test -f framebuffer.tga

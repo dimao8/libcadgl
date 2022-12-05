@@ -55,13 +55,20 @@ TESTS = tests/test1 \
 	tests/test2 \
 	tests/test3 \
 	tests/test4 \
-	tests/test5
+	tests/test5 \
+	tests/test6
 
 XFAIL_TESTS = tests/test2 \
 	tests/test4 \
 	tests/test5
 
-check_PROGRAMS = tests/testcalc
+check_PROGRAMS = tests/testcalc \
+	tests/testcanvas
+
 tests_testcalc_SOURCES = tests/testcalc.cpp
 tests_testcalc_CXXFLAGS = -I$(srcdir)/include
 tests_testcalc_LDADD = -lcadgl
+
+tests_testcanvas_SOURCES = tests/testcanvas.cpp
+tests_testcanvas_CXXFLAGS = -I$(srcdir)/include
+tests_testcanvas_LDADD = -lcadgl
