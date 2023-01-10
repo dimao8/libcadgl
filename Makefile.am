@@ -5,8 +5,16 @@ libcadgl_la_SOURCES = src/cadgl.cpp \
 	src/calc/calc.cpp \
 	src/calc/calc.h \
 	src/graphic/canvas.cpp \
-	src/graphic/canvas.h
-libcadgl_la_CXXFLAGS = -I$(srcdir)/include
+	src/graphic/canvas.h \
+	src/graphic/opengl.cpp \
+	src/graphic/opengl.h
+libcadgl_la_CXXFLAGS = -I$(srcdir)/include -pedantic
+
+if enable_debug
+libcadgl_la_CXXFLAGS += -g -O0 -DDEBUG
+else
+libcadgl_la_CXXFLAGS += -O2 -DNDEBUG
+endif
 
 include_HEADERS = include/cadgl.h
 

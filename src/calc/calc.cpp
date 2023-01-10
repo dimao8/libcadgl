@@ -6,28 +6,28 @@
 namespace cadgl
 {
 
-/*******************  calc::calc  *******************/
+  /* ******************************* calc::calc ******************************* */
 
   calc::calc()
   {
     // TODO : Constructor
   }
 
-/*******************  calc::~calc  ******************/
+  /* ******************************* calc::~calc ****************************** */
 
   calc::~calc()
   {
     // TODO : Destructor
   }
 
-/*******************  calc::reset  ******************/
+  /* ******************************* calc::reset ****************************** */
 
   void calc::reset()
   {
     m_tokens.clear();
   }
 
-/******************  calc::resolve  *****************/
+  /* ****************************** calc::resolve ***************************** */
 
   bool calc::resolve(float* result, const std::string& expr)
   {
@@ -71,7 +71,7 @@ namespace cadgl
     return true;
   }
 
-/******************  calc::lexical  *****************/
+  /* ****************************** calc::lexical ***************************** */
 
   bool calc::lexical(const std::string& expr)
   {
@@ -187,7 +187,7 @@ namespace cadgl
     return true;
   }
 
-/******************  calc::syntax  ******************/
+  /* ****************************** calc::syntax ****************************** */
 
   bool calc::syntax(float* result)
   {
@@ -200,7 +200,7 @@ namespace cadgl
       return true;
   }
 
-/*************  calc::parse_expression  *************/
+  /* ************************* calc::parse_expression ************************* */
 
   float calc::parse_expression(token_list& list, token_list::iterator& input)
   {

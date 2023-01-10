@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([libcadgl], [0.1.0.1], [dimao8@yandex.ru])
+AC_INIT([libcadgl], [0.1.0.2], [dimao8@yandex.ru])
 AC_CONFIG_SRCDIR([src/cadgl.cpp])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([1.10 foreign subdir-objects silent-rules])
@@ -15,6 +15,13 @@ LT_LANG([C++])
 # Checks for programs.
 CXXFLAGS="-std=gnu++11"
 AC_PROG_CXX([clang++ llvw-g++ g++])
+
+# Check for --enable-debug
+AC_ARG_ENABLE([debug],
+							[AS_HELP_STRING([--enable-debug], [Enable debug])])
+AS_IF([test "x$enable_debug" != "xno"],
+			[echo "Debug is enabled by configuration"])
+AM_CONDITIONAL([enable_debug], [test "x$enable_debug" != "xno"])
 
 # Check for pdflatex
 AC_ARG_ENABLE([build-doc],
